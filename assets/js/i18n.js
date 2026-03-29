@@ -109,7 +109,3 @@ function renderStats(lang) {
     </div>
   `).join('');
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  setLang(localStorage.getItem('lang') || 'en');
-});

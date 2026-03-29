@@ -20,20 +20,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Lang from URL param
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  if (urlLang && ['en','ru'].includes(urlLang)) {
+    setLang(urlLang);
+  } else {
+    setLang(localStorage.getItem('lang') || 'en');
+  }
+
   // ── Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.1 });
+  reveals.forEach(el => revealObserver.observe(el));
 
-  // ── Lang from URL param
-  const urlLang = new URLSearchParams(location.search).get('lang');
-  if (urlLang && ['en','ru'].includes(urlLang)) setLang(urlLang);
+  // ── Counter animation for stats
+  function animateCounter(el) {
+    const text = el.textContent;
+    const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+    if (isNaN(num) || num < 10) return;
+    const prefix = text.match(/^[^0-9]*/)[0];
+    const suffix = text.match(/[^0-9.]*$/)[0];
+    const duration = 1400;
+    const steps = 50;
+    const increment = num / steps;
+    let current = 0;
+    let step = 0;
+    const timer = setInterval(() => {
+      step++;
+      current = step === steps ? num : Math.min(current + increment, num);
+      const display = Number.isInteger(num) ? Math.round(current) : current.toFixed(1);
+      el.textContent = prefix + display.toLocaleString() + suffix;
+      if (step >= steps) clearInterval(timer);
+    }, duration / steps);
+  }
+
+  // ── Observe stats section to trigger counters
+  const statsSection = document.getElementById('stats');
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          document.querySelectorAll('.stat-value').forEach(el => animateCounter(el));
+          statsObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsSection);
+  }
 
 });
