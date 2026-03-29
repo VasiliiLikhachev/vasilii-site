@@ -5,7 +5,7 @@
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 480px;
   gap: 4rem;
   align-items: center;
 }
@@ -56,9 +56,9 @@
   padding: 4px 12px;
 }
 .hero-photo-wrap { flex-shrink: 0; }
-.hero-photo-placeholder {
-  width: 300px;
-  height: 380px;
+.hero-photo {
+  width: 480px;
+  height: 580px;
   object-fit: cover;
   object-position: center top;
   border-radius: var(--radius-lg);

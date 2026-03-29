@@ -20,14 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Lang from URL param
-  const urlLang = new URLSearchParams(location.search).get('lang');
-  if (urlLang && ['en','ru'].includes(urlLang)) {
-    setLang(urlLang);
-  } else {
-    setLang(localStorage.getItem('lang') || 'en');
-  }
-
   // ── Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
