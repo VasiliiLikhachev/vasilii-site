@@ -20,8 +20,8 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--green);
-  background: var(--green-2);
+  color: var(--accent-contrast);
+  background: var(--accent);
   border-radius: 100px;
   padding: 5px 14px;
   margin-bottom: 1.25rem;
@@ -54,9 +54,9 @@
 }
 .badge {
   font-size: 12px;
-  color: var(--green);
-  background: var(--green-2);
-  border: 1px solid #C4D9CA;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border: 1px solid var(--accent-hover);
   border-radius: 100px;
   padding: 4px 12px;
 }
@@ -128,7 +128,7 @@
 .stat-card:hover::after { transform: scaleX(1); }
 
 /* ── ABOUT ─────────────────────────────────────────────── */
-.about-section { background: var(--green-2); }
+.about-section { background: var(--bg-alt); }
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 260px;
@@ -177,13 +177,13 @@
 }
 .accel-tag:hover { border-color: var(--border-2); color: var(--text); }
 .accel-featured {
-  color: var(--green);
-  background: var(--green-2);
+  color: var(--accent-contrast);
+  background: var(--accent);
   border-color: transparent;
 }
 
 /* ── CLIENTS ───────────────────────────────────────────── */
-.clients-section { background: var(--green-2); }
+.clients-section { background: var(--bg-alt); }
 .clients-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -242,8 +242,8 @@
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--green);
-  background: var(--green-2);
+  color: var(--accent-contrast);
+  background: var(--accent);
   border-radius: 100px;
   padding: 3px 10px;
 }
@@ -264,7 +264,7 @@
 .blog-read-more {
   font-size: 13px;
   font-weight: 500;
-  color: var(--green);
+  color: var(--text-2);
   margin-top: 4px;
   transition: opacity var(--transition);
 }
@@ -319,7 +319,7 @@
   color: var(--text);
   transition: color var(--transition);
 }
-.contact-value:hover { color: var(--green); }
+.contact-value:hover { color: var(--text); }
 .social-links { display: flex; gap: 10px; flex-wrap: wrap; }
 .social-link {
   font-size: 14px;

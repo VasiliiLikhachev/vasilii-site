@@ -15,7 +15,7 @@
   color: var(--text-3);
 }
 .breadcrumb a { color: var(--text-3); transition: color var(--transition); }
-.breadcrumb a:hover { color: var(--green); }
+.breadcrumb a:hover { color: var(--text); }
 .article-layout {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -58,8 +58,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--green-2);
-  color: var(--green);
+  background: var(--accent);
+  color: var(--accent-contrast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,13 +99,13 @@
 .article-content li { margin-bottom: 0.5rem; }
 .article-content strong { color: var(--text); font-weight: 500; }
 .article-content em { font-style: italic; }
-.article-content a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.article-content a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 .article-content a:hover { opacity: 0.75; }
 .article-content blockquote {
   margin: 1.75rem 0;
   padding: 1.25rem 1.5rem;
-  background: var(--green-2);
-  border-left: 3px solid var(--green);
+  background: var(--accent-2);
+  border-left: 3px solid var(--accent-hover);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 .article-content blockquote p {
@@ -123,12 +123,12 @@
 .article-cta-inline {
   margin: 2rem 0;
   padding: 1.25rem 1.5rem;
-  background: var(--green-2);
+  background: var(--accent-2);
   border-radius: var(--radius);
-  border: 1px solid rgba(74,124,89,0.2);
+  border: 1px solid var(--accent-hover);
 }
 .article-cta-inline p { font-size: 15px; color: var(--text); margin: 0; }
-.article-cta-inline a { color: var(--green); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.article-cta-inline a { color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
 .faq-list { margin-top: 1rem; }
 .faq-item {
   border-top: 1px solid var(--border);
@@ -184,8 +184,8 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--green-2);
-  color: var(--green);
+  background: var(--accent);
+  color: var(--accent-contrast);
   display: flex;
   align-items: center;
   justify-content: center;
