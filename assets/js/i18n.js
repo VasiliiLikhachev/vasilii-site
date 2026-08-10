@@ -26,7 +26,7 @@ const translations = {
     about: {
       title: "About",
       p1: "I'm a professional business tracker and startup advisor with a background as a founder and CEO. Since 2019, I've worked with seed and pre-seed startups across Russia, Kazakhstan, the MENA region, the EU, and the US.",
-      p2: "I've been a tracker, senior tracker, expert and speaker at 30+ accelerators including Sberbank, FRII, Scalerator, Startup Garage, and Astana Hub. Corporate tracker at VkusVill and Sravni.ru. Organized accelerator programs for VkusVill, TUSUR AI, and Agama Run.",
+      p2: "I've been a tracker, senior tracker, expert and speaker at 30+ accelerators including Sberbank, FRII, Scalerator, Startup Garage, and Astana Hub. Corporate tracker at Sravni.ru. Organized accelerator programs for TUSUR AI, and Agama Run.",
       p3: "Before advisory work, I was CEO of a company with annual revenue of ₽2B+. Expert at Google for Startups and Hero Training by Draper University in Silicon Valley. English B2."
     },
     accelerators: { title: "Accelerators & Programs", subtitle: "Tracker, senior tracker, expert and speaker" },
@@ -63,7 +63,7 @@ const translations = {
     about: {
       title: "Обо мне",
       p1: "Профессиональный бизнес-трекер и стартап-советник с опытом фаундера и CEO. С 2019 года работаю с seed и pre-seed стартапами в России, Казахстане, MENA, ЕС и США.",
-      p2: "Трекер, старший трекер, эксперт и спикер в 30+ акселераторах: Сбербанк, ФРИИ, Scalerator, Startup-Garage, Астана Хаб и других. Корпоративный трекер ВкусВилл и Sravni.ru.",
+      p2: "Трекер, старший трекер, эксперт и спикер в 30+ акселераторах: Сбербанк, ФРИИ, Scalerator, Startup-Garage, Астана Хаб и других. Корпоративный трекер Sravni.ru.",
       p3: "До трекинга — CEO компании с оборотом 2+ млрд руб. в год. Эксперт Google for Startups и Hero Training by Draper University. Английский B2."
     },
     accelerators: { title: "Акселераторы и программы", subtitle: "Трекер, старший трекер, эксперт и спикер" },
