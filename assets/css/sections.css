@@ -1,7 +1,12 @@
 /* ── HERO ──────────────────────────────────────────────── */
 .hero-section {
   padding: calc(var(--nav-h) + 80px) 0 80px;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: -1px -1px;
 }
 .hero-inner {
   display: grid;
@@ -67,7 +72,7 @@
 /* ── STATS DASHBOARD ───────────────────────────────────── */
 .stats-section {
   padding: 80px 0;
-  background: #111110;
+  background: var(--black);
 }
 .stats-section .section-label {
   color: rgba(255,255,255,0.3);
@@ -115,7 +120,7 @@
   position: absolute;
   bottom: 0; left: 2rem; right: 2rem;
   height: 1px;
-  background: var(--green);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -259,7 +264,7 @@
 .blog-read-more {
   font-size: 13px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--green);
   margin-top: 4px;
   transition: opacity var(--transition);
 }
@@ -314,7 +319,7 @@
   color: var(--text);
   transition: color var(--transition);
 }
-.contact-value:hover { color: var(--accent); }
+.contact-value:hover { color: var(--green); }
 .social-links { display: flex; gap: 10px; flex-wrap: wrap; }
 .social-link {
   font-size: 14px;
