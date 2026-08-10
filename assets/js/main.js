@@ -34,36 +34,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Counter animation for stats
   function animateCounter(el) {
-    const text = el.textContent;
+    if (el.closest('[data-no-counter]')) return;
+    const text = el.textContent.trim();
     const num = parseFloat(text.replace(/[^0-9.]/g, ''));
-    if (isNaN(num) || num < 10) return;
+    if (isNaN(num) || num === 0) return;
     const prefix = text.match(/^[^0-9]*/)[0];
     const suffix = text.match(/[^0-9.]*$/)[0];
+    const isInt = Number.isInteger(num);
     const duration = 1400;
-    const steps = 50;
-    const increment = num / steps;
-    let current = 0;
+    const steps = 60;
     let step = 0;
+    el.textContent = prefix + (isInt ? '0' : '0.0') + suffix;
     const timer = setInterval(() => {
       step++;
-      current = step === steps ? num : Math.min(current + increment, num);
-      const display = Number.isInteger(num) ? Math.round(current) : current.toFixed(1);
-      el.textContent = prefix + display.toLocaleString() + suffix;
+      const progress = step / steps;
+      // ease-out curve: fast start, slow finish
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = step === steps ? num : num * eased;
+      const display = isInt ? Math.round(current).toLocaleString() : current.toFixed(1);
+      el.textContent = prefix + display + suffix;
       if (step >= steps) clearInterval(timer);
     }, duration / steps);
+  }
+
+  function runStatCounters() {
+    document.querySelectorAll('.stat-value').forEach(el => animateCounter(el));
   }
 
   // ── Observe stats section to trigger counters
   const statsSection = document.getElementById('stats');
   if (statsSection) {
+    let fired = false;
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          document.querySelectorAll('.stat-value').forEach(el => animateCounter(el));
-          statsObserver.unobserve(e.target);
+        if (e.isIntersecting && !fired) {
+          fired = true;
+          runStatCounters();
+          statsObserver.disconnect();
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
     statsObserver.observe(statsSection);
   }
 
